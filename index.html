@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFly - GIF Search & Reactions</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+<body>
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </span>
+            GIFly<span class="logo-dot">.</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#home" class="nav-link active">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+            <a href="#gallery" class="nav-link">
+                <i class="fa-solid fa-images"></i>
+                Explore
+            </a>
+        </nav>
+        <div class="nav-badge">
+            <span class="live-dot"></span>
+            GIF Explorer
+        </div>
+    </header>
+    <main id="home">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="eyebrow">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    YOUR REACTION DESTINATION
+                </div>
+                <h1>
+                    Express yourself<br>
+                    <span>one GIF at a time.</span>
+                </h1>
+                <p class="hero-description">
+                    Discover trending GIFs, find the perfect reaction
+                    and share your favourite moments...
+                </p>
+                <form class="search-form" id="searchForm">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search GIFs, reactions, emotions..."
+                        autocomplete="off"
+                        aria-label="Search GIFs"
+                    >
+                    <button type="submit" class="search-button">
+                        Search
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+                <div class="popular-searches">
+                    <span>Popular:</span>
+                    <button type="button" data-query="happy">
+                        Happy
+                    </button>
+                    <button type="button" data-query="funny">
+                        Funny
+                    </button>
+                    <button type="button" data-query="love">
+                        Love
+                    </button>
+                    <button type="button" data-query="dance">
+                        Dance
+                    </button>
+                </div>
+            </div>
+            <div class="hero-decoration">
+                <div class="floating-icon icon-one">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="floating-icon icon-two">
+                    <i class="fa-solid fa-face-laugh-squint"></i>
+                </div>
+                <div class="floating-icon icon-three">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="floating-circle">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>GIF</span>
+                </div>
+            </div>
+        </section>
+        <section class="categories-section">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">FIND YOUR VIBE</span>
+                    <h2>Explore categories</h2>
+                </div>
+                <i class="fa-solid fa-shapes heading-icon"></i>
+            </div>
+            <div class="category-list">
+                <button class="category-card active" type="button" data-query="">
+                    <span class="category-icon trending">
+                        <i class="fa-solid fa-fire"></i>
+                    </span>
+                    <span>Trending</span>
+                </button>
+                <button class="category-card" type="button" data-query="funny">
+                    <span class="category-icon funny">
+                        <i class="fa-solid fa-face-laugh"></i>
+                    </span>
+                    <span>Funny</span>
+                </button>
+                <button class="category-card" type="button" data-query="love">
+                    <span class="category-icon love">
+                        <i class="fa-solid fa-heart"></i>
+                    </span>
+                    <span>Love</span>
+                </button>
+                <button class="category-card" type="button" data-query="dance">
+                    <span class="category-icon dance">
+                        <i class="fa-solid fa-music"></i>
+                    </span>
+                    <span>Dance</span>
+                </button>
+                <button class="category-card" type="button" data-query="happy">
+                    <span class="category-icon happy">
+                        <i class="fa-solid fa-face-smile"></i>
+                    </span>
+                    <span>Happy</span>
+                </button>
+                <button class="category-card" type="button" data-query="reaction">
+                    <span class="category-icon reaction">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </span>
+                    <span>Reactions</span>
+                </button>
+            </div>
+        </section>
+        <section class="gallery-section" id="gallery">
+            <div class="gallery-heading">
+                <div>
+                    <span class="section-kicker" id="kicker">
+                        FRESH REACTIONS
+                    </span>
+                    <h2 id="title">
+                        Trending GIFs
+                    </h2>
+                    <p class="gallery-description">
+                        The perfect GIF for every mood.
+                    </p>
+                </div>
+                <div class="results-badge" id="count">
+                    Loading...
+                </div>
+            </div>
+            <div class="status-message hidden" id="message" role="status">
+            </div>
+            <div class="gif-grid" id="grid">
+            </div>
+            <div class="loading-indicator hidden" id="loading">
+                <span class="spinner"></span>
+                <span>Finding amazing GIFs...</span>
+            </div>
+            <div class="load-wrap">
+                <button type="button" id="loadMore" class="load-more">
+                    Load More GIFs
+                    <i class="fa-solid fa-arrow-down"></i>
+                </button>
+            </div>
+            <div id="sentinel"></div>
+        </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastText">GIF link copied!</span>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
