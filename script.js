@@ -120,7 +120,7 @@ async function fetchGifs(reset = false) {
         hideMessage();
     }
     if (!hasMore) return;
-    if (!API_KEY || API_KEY === "YDCfBo2LambljGLKhiG4hybf4GeeAHT3") {
+    if (!API_KEY || API_KEY === "") {
         showMessage("Please add your GIPHY API key in script.js.");
         updateLoadMore();
         return;
